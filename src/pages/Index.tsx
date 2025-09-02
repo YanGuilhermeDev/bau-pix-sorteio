@@ -60,8 +60,8 @@ const Index = () => {
             <h1 className="text-4xl md:text-6xl font-bold gradient-gold bg-clip-text text-transparent mb-4 animate-fade-in-up">
               🎰 Sorteio dos Baús Premiados
             </h1>
-            <p className="text-xl text-muted-foreground animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-              Escolha seu baú e ganhe prêmios incríveis!
+            <p className="text-2xl md:text-3xl font-bold text-accent animate-fade-in-up treasure-glow" style={{animationDelay: '0.2s'}}>
+              💎 ESCOLHA SEU BAÚ E GANHE PRÊMIOS INCRÍVEIS! 💎
             </p>
           </div>
 

@@ -55,7 +55,7 @@ const Index = () => {
     <div className="min-h-screen bg-background relative">
       {/* Partículas flutuantes */}
       <div className="floating-particles">
-        {Array.from({ length: 10 }, (_, index) => (
+        {Array.from({ length: 15 }, (_, index) => (
           <div key={index} className="particle"></div>
         ))}
       </div>

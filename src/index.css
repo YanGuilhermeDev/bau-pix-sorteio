@@ -78,6 +78,14 @@
     box-shadow: 0 0 20px hsl(var(--treasure-glow) / 0.3), 0 0 40px hsl(var(--treasure-glow) / 0.2);
   }
   
+  .shadow-glow {
+    box-shadow: 0 0 8px hsl(var(--gold) / 0.8), 0 0 16px hsl(var(--gold) / 0.6);
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
   .prize-shine {
     background: linear-gradient(45deg, transparent 30%, hsl(var(--gold) / 0.3) 50%, transparent 70%);
     animation: shine 2s infinite;

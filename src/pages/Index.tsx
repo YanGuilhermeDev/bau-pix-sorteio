@@ -52,7 +52,13 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Partículas flutuantes */}
+      <div className="floating-particles">
+        {Array.from({ length: 10 }, (_, index) => (
+          <div key={index} className="particle"></div>
+        ))}
+      </div>
       {/* Header com prêmios */}
       <header className="py-8 px-4">
         <div className="max-w-6xl mx-auto">

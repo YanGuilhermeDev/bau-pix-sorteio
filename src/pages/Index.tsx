@@ -62,6 +62,15 @@ const Index = () => {
       {/* Header com prêmios */}
       <header className="py-8 px-4">
         <div className="max-w-6xl mx-auto">
+          {/* Logo */}
+          <div className="text-center mb-8">
+            <img 
+              src="/lovable-uploads/1fdd9773-c404-4b9f-861e-257bf15f36ec.png" 
+              alt="Vollax Invest" 
+              className="mx-auto h-16 md:h-20 opacity-90 animate-fade-in-up"
+            />
+          </div>
+
           <div className="text-center mb-8">
             <h1 className="text-4xl md:text-6xl font-bold gradient-gold bg-clip-text text-transparent mb-4 animate-fade-in-up">
               🎰 Sorteio dos Baús Premiados

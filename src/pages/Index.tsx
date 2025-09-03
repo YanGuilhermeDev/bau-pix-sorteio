@@ -13,6 +13,7 @@ const Index = () => {
   const [selectedChest, setSelectedChest] = useState<number | null>(null);
   const [revealedPrize, setRevealedPrize] = useState<Prize | null>(null);
   const [gamePhase, setGamePhase] = useState<'initial' | 'spinning' | 'selecting' | 'revealed'>('initial');
+  const [chestPositions, setChestPositions] = useState<number[]>([0, 1, 2, 3, 4, 5]);
 
   const prizes = ["100 reais", "50 reais", "payout aumentado"] as Prize[];
   const topPrizes = ["5000 reais no pix", "2000 reais no pix", "1000 reais no pix", "100 reais", "50 reais", "payout aumentado"];
@@ -23,11 +24,24 @@ const Index = () => {
     setSelectedChest(null);
     setRevealedPrize(null);
     
-    // Para o spinning após 3 segundos
+    // Embaralha as posições dos baús durante o spinning
+    const shuffleInterval = setInterval(() => {
+      setChestPositions(prev => {
+        const newPositions = [...prev];
+        // Troca duas posições aleatórias
+        const idx1 = Math.floor(Math.random() * 6);
+        const idx2 = Math.floor(Math.random() * 6);
+        [newPositions[idx1], newPositions[idx2]] = [newPositions[idx2], newPositions[idx1]];
+        return newPositions;
+      });
+    }, 200); // Troca posições a cada 200ms
+    
+    // Para o spinning após 1.5 segundos (mais rápido)
     setTimeout(() => {
+      clearInterval(shuffleInterval);
       setIsSpinning(false);
       setGamePhase('selecting');
-    }, 3000);
+    }, 1500);
   };
 
   const selectChest = (chestIndex: number) => {
@@ -49,6 +63,7 @@ const Index = () => {
     setIsSpinning(false);
     setSelectedChest(null);
     setRevealedPrize(null);
+    setChestPositions([0, 1, 2, 3, 4, 5]); // Reseta as posições dos baús
   };
 
   return (
@@ -113,13 +128,13 @@ const Index = () => {
 
           {/* Grid de baús */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
-            {Array.from({ length: 6 }, (_, index) => (
+            {chestPositions.map((originalIndex, currentIndex) => (
               <TreasureChest
-                key={index}
-                index={index}
+                key={originalIndex}
+                index={originalIndex}
                 isSpinning={isSpinning}
-                isSelected={selectedChest === index}
-                onClick={() => selectChest(index)}
+                isSelected={selectedChest === originalIndex}
+                onClick={() => selectChest(originalIndex)}
                 canSelect={gamePhase === 'selecting'}
               />
             ))}

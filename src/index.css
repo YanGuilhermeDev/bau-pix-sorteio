@@ -96,7 +96,7 @@
   }
   
   .chest-spin {
-    animation: chest-spin 3s linear infinite;
+    animation: chest-spin 0.8s linear infinite;
   }
   
   .prize-reveal {
